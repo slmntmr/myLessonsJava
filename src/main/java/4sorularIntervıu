@@ -1,0 +1,197 @@
+
+ java platform bağımsız bir dildir ne demektır?
+
+ Java, platform bağımsız bir dildir çünkü Java kodu, platforma özgü makine kodu yerine
+ Java Sanal Makinesi (JVM) tarafından yürütülür. Java kodu, önce Java Derleyicisi tarafından
+ Java Bytecode adı verilen platform bağımsız bir ara dile derlenir ve daha sonra JVM tarafından
+  çalıştırılır . Bu özellikler sayesinde Java, bir kez yazılan bir programın herhangi bir
+  platformda çalıştırılabilmesini sağlar.
+ Java, web uygulamaları, mobil uygulamalar, masaüstü uygulamaları ve
+  gömülü sistemler gibi çeşitli alanlarda kullanılır
+
+Thread Kavramı:
+Thread, bir işlem içinde birden fazla iş parçacığı oluşturmak için kullanılan bir yapıdır. Her iş parçacığı, aynı
+bellek alanını paylaşır ve bağımsız olarak çalışabilir. Thread’ler, çoklu işlemci çekirdeklerini etkin bir
+şekilde kullanarak paralel işlem yapmamıza olanak tanır.
+
+        //Thread Safe, Multi Thread, Synchronized kavramlarini inceleyelim
+
+ /*Thread safe (iş parçacığı güvenliği), bir yazılımın birden fazla iş parçacığı tarafından aynı anda
+ güvenle kullanılabilmesidir. Thread safe bir yazılım örneği, bir banka hesabını yöneten bir
+ sistemdir. Bu sistem, birden fazla müşterinin aynı anda hesabına erişebilmesine
+ izin vermelidir ve bu nedenle thread safe olmalıdır.
+
+ Multi thread (çok iş parçacıklı), bir yazılımın birden fazla iş parçacığı tarafından aynı anda
+ çalıştırılmasıdır. Bu, yazılımın daha hızlı ve verimli çalışmasına izin verebilir.
+ Multi thread bir yazılım örneği, bir web tarayıcısıdır. Bir web tarayıcısı,
+ aynı anda birden fazla web sayfasını açabilir ve bu nedenle multi thread'dir.
+
+ Synchronized olması ise, bir veri yapısının aynı anda sadece bir iş parçacığı
+ tarafından kullanılabilmesi anlamına gelir.*/
+
+
+Asenkron ve Queue İlişkisi:
+Asenkron programlama, işlemlerin ardışık olarak değil, eşzamanlı olarak çalıştığı bir yaklaşımdır.
+Queue (kuyruk), asenkron işlemleri yönetmek için sıklıkla kullanılır. İş parçacıkları veya süreçler,
+ kuyruğa eklenir ve sırayla işlenir. Bu, işlemlerin sırayla çalışmasını sağlar ve aynı zamanda
+ paralel işlem yapılmasına olanak tanır.
+
+Dependency Injection (Bağımlılık Enjeksiyonu):
+Dependency Injection, bir klasın (bean) başka bir klasın  bılesenlerını  kullanabilmesi için dışarıdan enjekte
+edilmesi anlamına gelir. Spring Framework, bu yöntemi kullanarak bağımlılıkları yönetir.
+Bir klas @Component anotasyonu ile işaretlendiğinde, Spring tarafından yönetilen bir bileşen olarak kabul edilir ve Spring
+konteynerine kaydedilir. Bu, sınıfın diğer bileşenler tarafından enjekte edilmesi veya kullanılması için uygun hale gelir.
+Bu nedenle, @Component anotasyonu, Spring Boot uygulamalarında iş mantığını içeren bileşenlerin işaretlenmesinde yaygın olarak kullanılır.
+ Kendi yaptıgımız klasları sprıng tarafından  yönetılmesı için Spring’in @Component, @Service, @Repository gibi anotasyonları kullanılır.
+ javanın hazır klaslarının metodlarını kullanacaksak bunları  @bean ıle anate ederız.)
+  @Bean
+    public InternalResourceViewResolver resolver(){
+        InternalResourceViewResolver resolver=new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");//view dosyası nerede
+        resolver.setSuffix(".jsp");//dosyanın uzantısı nedir
+        resolver.setViewClass(JstlView.class);//JavaStandardTagLibrary:JSP dosyaları içinde daha az Java kodu yazmamızı sağlar
+        return resolver;
+    }
+
+     @RequiredArgsConstructor
+     @Autowired
+     ıkısı ınceksın ıslemlerınde kullanılır  @Autowired feald ınceksın ıcın kullanılırken  @RequiredArgsConstructor ıncek edecegımız
+     klasın fınal nesnesını(sprıng tarafından yonetıldıgı ıcın sprıng bundan bır obje uretır ve cagırdıgımız yere gonderır)
+     klasın yapıcı(parametrelı konstraktırına)metoduna parametre olarak gonderır ve ınceksın ıslemını bu
+     sekılde gerceklestırır.
+
+
+Constructor Injection Neden Çok Tercih Edilir?
+Bu yöntem,enjekte edılecek olan klasın nesnesının (örneğin servisler veya diğer sınıflar) bir klasın yapıcı metoduna  parametre
+ olarak geçirilerek enjekte edılme prensibine dayanır. Constructor Injection, diğer enjeksiyon yöntemlerine göre birçok
+ avantaj sunar:
+Bağımlılıkların Zorunlu Olması: Constructor Injection, nesnenin çalışması için gerekli olan tüm
+ bağımlılıkların yapıcı parametreleri aracılığıyla bildirilmesini sağlar. Bu sayede kodun daha anlaşılır ve güvenli
+ olmasını sağlar
+ Değişmezlik (Immutability) Desteği: Constructor Injection, nesnenin yapıcı parametreleri
+ üzerinden bağımlılıklarını almasını sağlar. Bu, nesnenin yaşam döngüsü boyunca bağımlılıklarının
+değiştirilemez olduğu anlamına gelir. Bu, hatalı durumları önlemeye yardımcı olur.
+Test Edilebilirlik: Constructor Injection, bağımlılıkları parametre olarak alırken, test sırasında
+ bu bağımlılıkları taklit edebiliriz. Bu, birim testlerinin daha kolay yazılmasını ve nesnenin  davranışını doğrulamayı sağlar.
+Bağımlılık Yönetimi: Constructor Injection, bağımlılıkları sınıfın yapıcısında yönettiği için,
+bağımlılıkların yaşam döngüsü daha iyi kontrol edilir. Bu, kaynak sızıntılarını önler.
+Özetle, Constructor Injection, kodun daha temiz, test edilebilir ve bakımı daha kolay hale gelmesini sağlar.
+Bu nedenle, yazılım tasarımında tercih edilen bir yöntemdir
+
+Spring Security:
+Spring Security, Spring tabanlı uygulamalarda kimlik doğrulama ve yetkilendirme işlemlerini
+sağlayan bir güvenlik çerçevesidir. İstek geldiğinde, Spring Security, kullanıcının kimliğini
+doğrular ve yetkilendirme kontrollerini yapar.
+
+CORS Politikası:
+CORS (Cross-Origin Resource Sharing) ifadesi, bir kökende çalışan web uygulamasının, farklı bir kökende yer alan web uygulamalarına erişim
+izni kontrolünü sağlamak için kullanılan bir guvenlık onlemıdır. Bu mekanizma, web tarayıcıları tarafından yönetilir ve ek HTTP başlıkları
+ kullanarak çalışır
+
+Entity ile DTO Farkı:
+Entity, veritabanı tablosunu temsil eden bir sınıftır. DTO (Data Transfer Object), veri transferi
+için kullanılan bir sınıftır. Entity, veritabanı işlemleri için kullanılırken, DTO, veri transferi
+sırasında kullanılır. Entity’ler genellikle veritabanı alanlarına sahipken, DTO’lar sadece veri taşır.
+
+Mapping Nedir:
+Mapping, bir veri yapısını başka bir veri yapısına dönüştürme işlemidir. Örneğin, Entity sınıfını
+ DTO’ya veya veritabanı tablosunu Java nesnesine dönüştürmek için mapping kullanılır.
+
+Mapstruct:
+Mapstruct, Java sınıfları arasında otomatik dönüşüm sağlayan bir kod üretim aracıdır. Özellikle
+Entity ile DTO arasında dönüşümde kullanılır.
+
+
+Docker Config Dosyası ve AWS Üzerine Taşıma:
+Docker config dosyası, bir Docker konteynerini yapılandırmak için kullanılır. AWS üzerine
+taşımak için Docker imajını oluşturup Amazon ECR (Elastic Container Registry) veya Amazon
+
+ ECS (Elastic Container Service) gibi hizmetlerle kullanabilirsiniz.
+
+Docker’ın Avantajları Nelerdir?
+Docker, uygulamaların hızlı bir şekilde dağıtılmasını ve çalıştırılmasını sağlar.
+Uygulamaların herhangi bir ortamda çalışmasına olanak tanır, bu da taşınabilirliği artırır
+ ve geliştirme sürecini hızlandırır.
+Uygulamaların izolasyonunu sağlar1.
+
+CI/CD Pipeline Nedir ve Deployment Nasıl Yapılır?
+CI/CD (Sürekli Entegrasyon / Sürekli Dağıtım) süreçleri, yazılım geliştirme dünyasında bir
+devrim niteliğindedir.
+CI (Continuous Integration), yeni özellikleri hızla sisteme entegre etmeyi ve anında test
+etmeyi sağlar.
+CD (Continuous Deployment), test edilmiş ve çalıştığından emin olunan versiyonun canlıdaki
+web sunucusuna deploy edilmeye hazır olduğunda başlar2.
+
+Global Exception Handling ile Frontend’e Nasıl Veri Gönderilir?
+Global Exception Handling, uygulamanın tümünde istisnaları merkezi olarak ele almanın bir yoludur.
+Örneğin, ASP.NET Core’da Exception Handling için UseExceptionHandler Middleware kullanılabilir.
+Bu middleware, istisna yakalayan bir ara yazılım ekler ve hataları istemcilere istenilen formatta döndürür3.
+
+Spring ve Spring Boot Versiyonları Nelerdir?
+En son Spring Framework sürümü, Eylül 2023 itibarıyla Spring 6.0.11’dir.
+En son Spring Boot sürümü, Eylül 2023 itibarıyla Spring Boot 3.1.3’tür.
+Spring Boot 3.1.3, Java 17’yi minimum sürüm olarak gerektirir4.
+
+DI (Dependency Injection) Life Cycle Nedir ve Kaç Tane Vardır?
+DI’nın yaşam döngüsü, bağımlılıkların nasıl yönetildiğini belirler.
+DI’nın yaşam döngüsü, uygulama başlatıldığında oluşturulan nesnelerin yaşam süresini ifade eder.
+DI’nın yaşam döngüsü, Singleton, Prototype ve Request gibi farklı kapsamlarda yönetilebilir5.
+
+Dependency Injection (DI) ve bellek üzerindeki etkileri:
+DI, bellek tüketimini doğrudan etkilemez. Ancak DI kullanırken oluşturulan nesnelerin
+bellek kullanımı, genellikle diğer sistem bileşenlerine kıyasla ihmal edilebilir düzeydedir.,
+ Özellikle bir web uygulamasında, ASP.NET’in kendisi her istek için birçok geçici nesne
+ oluşturduğundan, DI’nın bellek tüketimini artırması beklenmez. Ayrıca, DI’nın kendisi bellek
+ tüketmez, ancak DI konteynerleri (örneğin Unity) bellek kullanabilir. Ancak bu genellikle sorun
+  olmaz ve DI’nın kaldırılmasını gerektirmez. Uygulamanızın bellek tüketimini incelemek için profil
+   yapmanızı öneririm.
+
+Heap Alanı ve Garbage Collector (GC):
+Heap alanı, dinamik bellek tahsisinde kullanılır ve Java nesnelerini depolar.
+GC, kullanılmayan nesneleri temizler ve belleği geri kazandırır. GC, nesnelerin
+ yaşam döngüsünü yönetir ve bellek sızıntılarını önler.
+
+.NET ve Java Arasındaki Farklar:
+.NET, Microsoft platformu için tasarlanmıştır ve C#, ASP.NET, Visual Studio gibi
+ Microsoft teknolojileriyle sıkı entegre edilmiştir.
+Java, platformdan bağımsızdır ve Java Runtime Environment (JRE) yüklü herhangi bir
+sistemde çalışabilir. JVM, Java kodunu her platformda sorunsuz yorumlar ve yürütür.
+.NET, daha fazla çapraz platform desteği sunar (.NET Core ve .NET 5+ ile).
+Java, geniş bir ekosisteme sahiptir ve JPA (Java Persistence API) standardının bir parçasıdır.
+
+JPA/Hibernate ile EntityFramework Karşılaştırması:
+Hibernate, JPA’nın bir uygulamasıdır ve JPA’nın ötesinde bazı benzersiz özelliklere sahiptir.
+Entity Framework (EF), .NET platformu için tasarlanmıştır ve Microsoft tarafından geliştirilmiştir.
+JPA, standart bir API’dır ve ORM’ler arasında taşınabilirliği sağlar.
+Hangi ORM’yi seçeceğiniz, projenizin özel gereksinimlerine ve ekibinizin uzmanlığına bağlıdır.
+
+Spring Boot ile JSON İletişimi:
+Spring Boot, Jackson kütüphanesini kullanarak JSON içeriğini tüketmek ve üretmek için varsayılan olarak gelir.
+@RestController ile işaretlenen sınıflar, Jackson sayesinde dönüş türünü yanıt gövdesine yazmak için kullanılır.
+ResponseEntity ile HTTP yanıtının durum kodunu ve diğer özelliklerini kontrol edebiliriz.
+
+Serileştirme ve Deserileştirme:
+Serileştirme, nesneleri veri akışına dönüştürme işlemidir (örneğin JSON veya XML).
+Deserileştirme, veri akışından nesneleri oluşturma işlemidir.
+
+Bean Nedir ve Ne İşe Yarar?:
+Spring Framework’te bir nesneyi yönetmek için kullanılan terimdir. Spring Container
+ tarafından yönetilen nesnelere “bean” denir. Bean’ler, Spring tarafından oluşturulur, yapılandırılır ve yönetilir.
+Bir sınıfın yönetimini Spring Framework'e verdiğinizde, bu sınıf bir Spring Bean haline gelir. Bu sınıfı Spring Container'e tanıttığınızda,
+Spring Container, bu sınıfın örneklerini oluşturabilir ve yönetebilir. Bu, bir objenin oluşturulması ve saklanması anlamına gelir.Spring bu
+sınıfın örneklerini oluşturabilir ve ihtiyaç duyulduğunda kullanılabilir hale getirebilir. Bu nesneler genellikle Spring uygulamanızın
+farklı bileşenleri arasında bağımlılıkları yönetmek için kullanılır.
+
+SQL ILE JPQL arasındakı fark nedır?
+
+SQL (Structured Query Language) ve JPQL (Java Persistence Query Language), veritabanı sorguları oluşturmak için
+kullanılan iki farklı dildir. İşte bu iki dil arasındaki temel farklar:
+Amaç ve Kullanım Alanı:
+SQL: Genel bir veritabanı sorgu dili olarak kullanılır. Veritabanındaki verilere erişim,
+ güncelleme ve manipülasyon için kullanılır.verıtabanı tabloları ıle calısır
+JPQL: JPA (Java Persistence API) ile birlikte kullanılan ve Java uygulamalarının veritabanı
+işlemlerini yönetmek için geliştirilmiş bir sorgu dili olarak karşımıza çıkar.
+JPQL, veritabanı tabloları yerine Java nesneleriyle çalışır.
+Veritabanı Bağımsızlığı:
+SQL: Veritabanı yönetim sistemi (örneğin, MySQL, PostgreSQL, Oracle) ile bağlantılıdır.
+JPQL: Veritabanı bağımsızdır. Aynı JPQL sorguları farklı veritabanlarına kolayca taşınabilir.

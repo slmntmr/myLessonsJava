@@ -1,0 +1,184 @@
+
++,-,*,/ islemleri Java’da matematikte kullanildigi gibi kullanilir
+Not 1: Java’da bir tamsayiyi baska bir tamsayiya bolerseniz sonuc her zaman tamsayi olur
+Not 2: Eger sonuc tamsayi degilse java sonucun ondalik kismini silerek onu int’e donusturur.
+Not 3: Bir matematiksel islemde farkli data tiplerini kullanirsaniz sonuc her zaman buyuk
+data tipinde olur.
+ Buyuklukten kasit, memory'de daha fazla bilgi saklayabilmektir
+Sayisal primitive data tiplerinin birbirine donusturulmesine Type Casting denir
+byte - short - int - long - float - double
+Not 1: Kucuk data tiplerinin buyuk data tiplerine cevrilmesini Java otomatik yapar.
+Bu isleme AutoWidening (Otomatik Genisletme) denir.
+byte -    short -     int -           long -      float -     double
+Not 2: Buyuk data tiplerini kucuk data tiplerine cevirmek riskli bir istir.Veri kaybi olusabilir.
+Java bu isi otomatik yapmaz. Bu islemi kod yazanlar yapar.
+bu isleme Explicit Narrowing (Aciktan daraltma) denir.
+
+1=>String’i degistirdikten sonra ayni String’e assign ederseniz Java yine yeni bir container olusturur.
+2=>Degismis degeri bu yeni container’in icine koyar ve eski container’i gosteren pointer yen container’a yonlendirilir
+3=>Dolayisiyla eski container adressiz kalir ve "Garbage Collector-cop toplayici"
+adressiz olan container’lari siler. GC bellek sızıntılarını önler. GC, Java'nın birçok
+uygulama için güvenli ve verimli bir dil olmasını sağlayan önemli bir özelliktir.Veri
+memory’de sahipsiz ve guvenliksiz bir sekilde beklemez.
+4=>GC'nin çalışma zamanlaması tamamen JVM (Java Virtual Machine) tarafından kontrol edilir ve uygulamadan bağımsızdır
+7-StringBuilder:
+String'e gore zengin bir class degildir.Mesela toUpperCase,split yoktur.
+toString() metodu, StringBuilder nesnesinin içeriğini bir String nesnesine dönüştürür
+StringBuffer:
+ 1) StringBuffer Java’da String ureten bir diger classtir.
+     StringBuffer Java’nin String uretmek icin olusturdugu ilk classtir
+ 2) StringBuffer, StringBuilder'a cok benzer, yani ikisi de "mutable-degistirilebilir" String uretir
+ 3) StringBuffer "multi-thread(coklu is parcacigi)" dir, ama StringBuilder "multi-thread" degildir.
+ 4) StringBuilder  "multi-thread" olmadigi icin StringBuffer’dan daha hizli calisir
+ 5) Multi-thread yapilirken, yapilan islerin siralamasi onem arzeder. Yapilan isleri mantikli bir
+ siraya koymak "synchronization" olarak adlandirilir
+ StringBuffer multi-thread oldugu icin ayni zamanda synchronized’dir
+
+ Uc tane String olusturan class ogrendik;
+ 1) Immutable String lazimsa ==> String class
+ 2) Mutable String lazimsa , StringBuilder veya StringBuffer
+       a) StringBuilder'i multi-thread gerekmezse kullaniriz
+       b) StringBuffer'i multi-thread gerekirse kullaniriz
+
+
+Lambda ifadeleri, Java 8 ile birlikte tanıtılan ve fonksiyonel(methodsal) programlamayı
+kolaylaştırmak için kullanılan bir özelliktir.Collection'lar ve Arrayler ile yaygin olarak kullanilir.Collection yapısını
+gereksız dongulere sokmak yerıne lambda ıle strem akısa alarak  Collection degerlerı arasında rahatca donulebılır ve ıslem
+yapılabılır.daha az kod yazma.
+
+Temelde, isimsiz fonksiyonları temsil ederler ve genellikle bir kez kullanılacak
+kısa işlevleri tanımlamak için kullanılırlar.
+
+Lambda ifadelerinin genel avantajları:
+1- Daha az kod yazma: Lambdalar, daha az ve daha okunabilir kod yazmanızı sağlar.
+2- Fonksiyonel programlama: Java'nın fonksiyonel programlama özelliklerini kullanmanıza yardımcı olur.
+3- İsimsizdir: Lambda ifadeleri, bir isme sahip değildir.
+4- Tek bir ifade içerebilir: Lambda ifadeleri, bir veya daha fazla işlem gerçekleştiren tek
+bir ifade içerebilir.
+5- Bir veya daha fazla parametre alabilir: Lambda ifadeleri, bir veya daha fazla parametre alabilir.
+
+Lambda ifadelerine bazen "arrow functions" da denir ->
+
+/*1) Lambda Functional Programming'dir, digeri "Structured -yapisal Programming" dir
+Structured Programming: Yapısal programlama, programların belirli yapılar veya kontrol yapıları
+(örneğin döngüler, şartlı ifadeler) kullanılarak yazılmasını teşvik eden bir programlamadir.
+ 2) Functional programming, Collection'lar ve Arrayler ile yaygin olarak kullanilir.(map'lerde direkt kullanilmaz
+ entrySet ile Set'e cevrilirse kullanilabilir)
+
+Soru: primitive ve non-primitive data type'lari arasindaki farklar nelerdir? (interview sorusu)
+1) "primitive" ler sadece bizim atadigimiz degeri icerir
+"non-primitive" ler bizim atadigimiz degeri ve methodlari icerir
+2) "primitive" ler kucuk harfle baslar, "non-primitive" ler buyuk harfle baslar
+3) "primitive" leri java uretmistir ve 8 tanedir
+"non-primitive" leri java ve developerlar uretebilir, sinirsiz sayidadir.
+4) "primitive" ler memory de data type larina gore sabit boyutta bellek kullanir
+"non-primitive" ler icin java memory de buyuklugune gore degisen boyutlarda bellek kullanabilirler
+
+Java primitive data tiplerine yeni ozellikler(methodlar) ekleyerek yeni bir yapi olusturdu.
+Bu yapiya wrapper (sarmalayici) class denir. En onemlisi girdigimiz veriler uzerinde method
+kullaniminin yolu acilmis olur. Wrapper class'lar non primitivedir.
+
+primitive     : char      - boolean - byte - short - int     - long - float - double
+wrapper class : Character - Boolean - Byte - Short - Integer - Long - Float - Double
+Java'da primitive ve wrapper class'lari arasinda otomatik donusum yapabilen autoboxing ve
+unboxing mekanizmalari vardir.autoboxing. primitive'i wrapper'a cevirir. Ornegin int'i
+Integer'a cevirir. Unboxing ise tam tersi bir islem yapar, Integer'i int'e donusturur.
+unboxing:
+Aritmetik islemler. Wrapper class'la aritmetik islem yapilirken Java otomatik olarak unboxing
+yapar ki performans artsin
+autoboxing:
+primitive veri turlerinin otomatik olarak esdeger wrapper class'lara donusturulmesidir
+
+System.out.println(); ve System.out.print(); arasindaki fark nedir?
+System.out.println(); ekrana bir sey yazdirdiktan sonra otomatik yeni satira gecer.
+System.out.print(); ekrana yazdirir ama yeni satira gecmez
+
+Overloading (aşırı yükleme):
+Overloading, aynı sınıf içinde aynı metod adını kullanarak farklı data tuelerınde ve farklı parametreler ıle olusturulmasıdır.
+Bu metotlar farklı veri tipleri (int, double, String) veya farklı sayıda parametre (iki ve üç) alır.
+Overloading sayesinde, aynı metot adıyla farklı işlemler yapılabilir.
+Overriding (yeniden yazma):
+Overriding, bir alt sınıfın üst sınıfından miras aldığı bir metodu yeniden tanımlama sürecidir. Bu sayede, alt sınıf üst sınıfın metotlarını kendi ihtiyaçlarına göre uyarlayabilir.
+Overriding sayesinde, çok şekillilik (polymorphism) kullanarak farklı sınıfların aynı metot adını kullanarak
+farklı işlemler gerçekleştirmesi sağlanır.
+
+15. Statik metodlar ve değişkenler nedir ve ne zaman kullanılmalıdır?
+Statik üyeler, sınıfa ait uyelerdır
+Statik metodlar
+bir sınıfa özgü olan ve sınıf adı üzerinden doğrudan çağrılabilen metotlardır sınıfın herhangi bir nesnesini oluşturmadan kullanılabilir.
+genellikle nesnelerle ilişkisi olmayan ve sınıf düzeyinde işlemler gerçekleştiren metotlar için kullanılır.
+Statik değişkenler:
+ bir sınıfa özgü olan ve tüm nesneler arasında paylaşılan değişkenlerdir sınıf düzeyinde tanımlanır ve sınıfın tüm nesneleri
+ tarafından kullanılabilir. genellikle sınıf düzeyinde ortak değerler veya sabitler için kullanılır
+Statik yöntemler ve değişkenler ne zaman kullanılmalıdır?
+Yardımcı işlemler ve araçlar sağlayan metotlar için, örneğin matematiksel işlemler ve dönüşüm işlemleri gerçekleştiren metotlar.
+Statik yöntemler ve değişkenler, sınıf düzeyinde işlemler ve paylaşılan değerler için kullanılmalıdır. Bu, kodun daha modüler ve sürdürülebilir olmasına yardımcı olur ve gereksiz nesne oluşturma işlemlerini önler.
+
+1- Nesne yönelimli programlamanın temel bileşenleri nelerdir?
+Nesne yönelimli programlamanın (OOP) temel bileşenleri, OOP'nin temel kavramlarını ve prensiplerini tanımlar. İşte OOP'nin temel bileşenleri:
+
+Sınıflar (Classes):
+Bir Clas, Objelerın ortak özelliklerini ve davranışlarını tanımlayan bir şablondur. Classes, bir
+nesnenin veri yapısını ve metodlarını belirler.
+Nesneler (Objects):
+klaslardan türetilen somut örneklerdir. objeler, sınıfların özelliklerini ve davranışlarını somutlaştırır ve
+ programın farklı bileşenleri arasında etkileşim sağlar.
+Özellikler (Properties):
+Nesnelerin durumunu temsil eden değişkenlerdir. Özellikler, nesnenin verisini saklar ve
+genellikle sınıf  içinde tanımlanır.
+Metodlar (Methods):
+Nesnelerin davranışlarını tanımlayan fonksiyonlardır. Metodlar, bir sınıf içinde tanımlanır ve nesnenin özelliklerini ve diğer metodları kullanarak işlemler gerçekleştirir.
+Kalıtım (Inheritance):
+Bir sınıfın, başka bir sınıfın özelliklerini ve davranışlarını miras almasını sağlayan mekanizmadır.
+Kalıtım sayesinde kod tekrarını azaltarak daha modüler ve düzenli yazılım geliştirmeye olanak sağlar.
+Polimorfizm (Polymorphism):
+Nesnelerin farklı sınıfların üyeleri olarak kabul edilerek, ortak arayüzler kullanarak işlemler gerçekleştirme yeteneğidir. Polimorfizm sayesinde, daha genel ve esnek kodlar yazmak mümkün hale gelir.
+Kapsülleme (Encapsulation):
+Nesne içindeki veri ve işlemlerin gizlenmesi ve dış dünya ile sadece belirli bir arayüz kullanarak etkileşime geçilmesi prensibidir. Kapsülleme, kodun güvenliği ve düzeni için önemlidir.
+Soyutlama (Abstraction):
+Karmaşıklığın yönetilmesi ve sadeleştirilmesi için kullanılan bir tekniktir. Soyutlama sayesinde, gerçek dünya problemlerini daha anlaşılır ve yönetilebilir bileşenlere bölmek mümkün hale gelir.
+Bu temel bileşenler, nesne yönelimli programlamanın temel yapı taşlarıdır ve yazılım geliştirme sürecinde önemli rol oynar.
+
+2- Sınıflar ve nesneler arasındaki fark nedir?
+Sınıflar ve nesneler, nesne yönelimli programlamanın (OOP) temel kavramlarıdır ve birbirleriyle yakından ilişkilidir. İkisi arasındaki temel farklar şunlardır:
+
+Sınıflar (Classes):
+Sınıflar, nesnelerin ortak özelliklerini ve davranışlarını tanımlayan şablonlardır.
+Bir sınıf, nesnelerin yapısını ve işlevlerini belirleyen özellikler (değişkenler) ve metodlar (fonksiyonlar) içerir.
+Sınıflar, soyut kavramlardır ve sadece tanımlandıkları yerde bellek tahsisi yapılmaz.
+Sınıflar, bir nesnenin temel özelliklerini ve davranışlarını tanımlar, ancak kendileri somut değildir.
+Nesneler (Objects):
+
+Nesneler, sınıflardan türetilen somut örneklerdir ve sınıfların özelliklerini ve davranışlarını kullanarak çalışır.
+Nesneler, sınıfın özelliklerinin değerlerini saklar ve sınıfın metodları aracılığıyla işlemler gerçekleştirir.
+Nesneler, somut örneklerdir ve bellekte tahsis edildiklerinde gerçek veriler ve işlemler için bellek alanı kaplarlar.
+Nesneler, sınıfların somutlaştırılmasıdır ve gerçek dünya problemlerini çözmek için kullanılır.
+Özetle, sınıflar nesnelerin temel yapısını ve işlevlerini tanımlayan soyut şablonlardır, nesneler ise bu şablonlardan türetilen somut örneklerdir. Sınıflar, nesnelerin ortak özelliklerini ve davranışlarını belirlerken, nesneler bu özelliklere ve davranışlara dayalı olarak gerçek dünya problemlerini çözmeye yönelik işlemler gerçekleştirir.
+
+3- Bir sınıfın yapıcısı(constructor metod) nedir ve ne işe yarar?
+Bir sınıfın yapıcısı (constructor), o sınıftan bir nesne örneği oluşturulduğu anda otomatik olarak çağrılan özel bir metottur.
+Bir constructor metodunun temel amacı, bir nesne oluşturulduğunda o nesnenin gereksinim duyduğu başlangıç durumunu(başlangıç
+ değerlerini)  ayarlamaktır. Örneğin, bir sınıfın constructor metodunda, sınıfa ait DEĞİŞKENLERİN başlangıç değerleri atanabilir
+ veya başka başlangıc işlemleri gerçekleştirilebilir.klas ısmı ıle aynıdır.
+
+Yapıcıların işlevleri şunları içerir:
+
+Başlangıç değerleri atama: Yapıcılar, nesne özelliklerine başlangıç değerleri atamak için kullanılabilir. Bu, nesnenin istenen başlangıç durumuna sahip olmasını sağlar.
+Bellek ayırma: Dinamik olarak bellek ayırma gerektiren özellikler için, yapıcılar bellek tahsisi ve belleğin serbest bırakılması işlemlerini yönetebilir.
+Nesne ömrü yönetimi: Yapıcılar, nesnenin ömrü boyunca geçerli olacak kaynakların ve bağlantıların açılması ve kapatılması gibi işlemleri yönetebilir.
+Nesne bağımlılıklarını yönetme: Bir nesne, başka nesnelerle veya bileşenlerle etkileşime girebilir. Yapıcılar, bu bağımlılıkları başlatma ve yapılandırma süreçlerini yönetebilir.
+Yapıcılar, genellikle sınıf adıyla aynı ada sahip olup, döndürme türü olarak herhangi bir şey belirtmezler. Yapıcılar, parametre alabilir ve bu parametrelerle nesne özelliklerini başlatma işlemini gerçekleştirir.
+
+
+Sınıfın özellikleri (properties) ve sınıfın metotları (methods), bir sınıfın iki farklı bileşenidir ve farklı amaçlara hizmet ederler:
+
+Sınıfın Özellikleri (Properties):
+Sınıfın durumunu temsil eder.
+Değişkenler olarak düşünülebilir.
+Örneğin, bir Person sınıfının name, age ve address gibi özellikleri olabilir.
+Sınıfın nesneleri (örneğin, bir sınıfın örneği) tarafından kullanılabilir ve bu nesnelerin durumunu saklamak veya değiştirmek için kullanılır.
+Sınıfın Metotları (Methods):
+Sınıfın davranışını temsil eder.
+İşlevsel kod parçalarıdır.
+Örneğin, bir Person sınıfının sayHello() veya calculateAge() gibi metotları olabilir.
+Sınıfın nesneleri tarafından çağrılır ve belirli işlemleri gerçekleştirmek için kullanılır.

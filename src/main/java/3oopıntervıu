@@ -1,0 +1,161 @@
+
+     OOP (Object Oriented Programming -  Nesne Tabanlı Programlama )
+
+        Gerçek hayatta gördüğümüz birçok Object'in (nesnenin) bilgisayar ortamına aktarılma şeklidir.
+        Yani bir object'in rengi, durumu, ismi, üretim yılı gibi birçok özelliklerin bilgisayar
+         ortamında gösterilmesi buna örnek olarak verilebilir.
+
+        Object Yönelimli Programlamanın Faydaları:
+
+        1) Object oluşturma bir Class içerisinde toplanır ve tüm projelerde kullanılabilirliğe olanak sağlar.(String gibi)
+        2) Class'larin 1 kez oluşturulması sayesinde uzun kodları tekrardan yazmak yerine kısa kodlamalar
+        ile çalıştırılabilir. Substring() method’u 1 kere yazilmis ama surekli kullanabiliyoruz.
+        3) Uzun kodların tekrar yazılmasının engellenmesi sayesinde geliştirme süreci kısalır.
+        4) Object'ler birbirinden bağımsız olduğundan bilgi gizliliği konusunda avantaj sağlar.
+        5) Class'lar sayesinde tüm projelerde değişiklik yapmak yerine tek bir class’ ta değişiklik
+        yapılıp tüm projelerde çalışması sağlanır. Bu zaman kaybını büyük ölçüde azaltır.*/
+
+         OOP’leri 4 temel özellikte inceleyebiliriz.
+        1. Inheritance - Miras Alma
+        2. Polymorphism - Çok Biçimlilik
+        3. Encapsulation - Kapsülleme
+        4. Abstraction - Soyutlama
+
+
+         1. Inheritance - Miras Alma
+
+        Ozellikleri bir class'tan diğer class'lara alan bir kavramdır.
+        Siz bir class olusturacaksiniz ama daha once olusturulmus bir class sizin istediginiz ozelliklerin bir cogunu
+        kapsiyor. O zaman direkt olusturdugunuz class'i, ozelliklerini kullanmak istediginiz class'a "child" yaparsiniz
+        Bunu da "extends - uzanir" keyword'unu kullanarak yapiyoruz
+
+        Inheritance’in Faydalari nelerdir?
+
+        1) Kodun yeniden kullanılmasına yardımcı olur.
+        2) Ana kodun tekrar yazılmasına gerek olmadığı için, daha az kod yazarak, zamandan ve
+        emekten tasarruf sağlayabiliriz.
+        3) Kolayca update yapabiliriz.
+        4) Class’lari kuculturuz.
+        5) Daha az geliştirme ve bakım maliyetine yol açar.
+
+
+      2. Abstraction(Soyut)
+
+    Abstraction iki bolumden olusur.
+
+    i) Abstract Class:
+
+    Soyutlama (Abstraction):
+    Kullanıcıya arka planda olan karısık ıslemlerıın gosterılmemesı ve sadeleştirilmesi için kullanılan bir
+    tekniktir.Bir işin ne yaptığını biliriz(metod var), ancak nasıl yapıldığı(metod badısı yok) ile ilgilenmeyiz. Yani işimize yarayacak
+    kadar bilgi sahibi oluruz.
+    Ortak Özellikleri Gruplama:
+    Abstract Class, ortak özelliklere sahip nesneleri gruplandırmak için kullanılır.Bu sayede kod tekrarını önler ve sınıf yapısını düzenler.
+    Base Class Olarak Davranma:
+    Abstract Class, sadece base class olarak davranmasını (yani inherit edilebilmesini) ve kendisinden nesne çıkartılmamasını
+    istediğimiz durumlarda kullanılır.Alt sınıflar bu Abstract Class’ı miras alarak kullanabilir.
+
+       1)Abstract method'larin body'si olmaz.Size ne yaptigini soyler,nasil yaptigini soylemez.
+        Kendisinden object olusturulmaz.
+       2)Body'si olan method'lara 'non-abstract' veya ‘concrete' (somut) method denir
+
+       3)Abstract method'lar tum child class'lar tarafindan override edilmelidir yani kullanilmalidir.
+
+       4)Abstract method'lar ancak abstract class'lar icinde olusturulabilir.
+
+       5)Abstract class'lar hem 'abstract method' hem de 'concrete method’ icerebilirler.
+
+       6)Concrete method'lar child class'lar tarafindan istenirse override edilebilirler
+
+
+
+        8) Abstract bir class’in abstract bir child’i olabilir ve abstract child parent’inin
+        methodlarini override etmek zorunda degildir ama isterse de edebilir
+
+        9) Abstract bir class private olamaz yoksa child’lari ona ulasip override edemez.
+
+
+    3.Encapsulation: Data hiding(Veri Saklama)
+
+    OOP mantiginda class uyelerine erisimi sinirlandirabilirsiniz.
+    Bunu access modifier(erişim değiştiricileri) larla yapabilirsiniz
+
+    Ama class’a ulasim disinda ‘access modifier’ larla yapamadigimiz bazi seyleri ‘encapsulation’ ile yapabiliriz.
+
+    1) Encapsulation, verileri koruma ve gizleme amacı taşır. encapsulation kullanarak
+    read ve write (okuma ve yazma) ozelliklerini birbirinden ayri olarak tanimlayabiliriz.
+    2) İstedigimize okuma, istedigimize yazma yetkisi veririz. ***Bazi insanlar bilgiyi sadece
+    gorsun ama degistiremesin. (Mesela,bir personel bir rapora fiyat bilgisi girsin-write-
+    ama rapor sonucunu(sirket kar zararini) goremesin. Sirket muduru de raporu okusun -read- ama degistiremesin.
+    CEO’da maliyet artislarini yansitabilmek icin hem okusun hemde yazsin gibi)
+
+    a) Data nasil saklanir?
+    Access modifier'larini 'private' yaparak datayi diger class'lardan gorunmez hale getiririm
+    boylece data'yi saklamis olurum.
+
+    b) Data'yi sakladin ama okuman gerekirse ne yapacaksin?
+    get() method'lar olusturarak saklanmis datalari diger class'lardan okuyabilirim
+
+    c) Data'yi sakladin ama o data'yi degistirmen gerekirse ne yapacaksin?
+    set() method'lar olusturarak saklanmis datalari diger class'lardan degistirebilirim
+
+    d)Hem okunabilir hemde yazilabilsin diyorsaniz, hem getter hemde setter method’u ayni anda olusturmaliyiz.
+
+
+      4.Interface
+  Interface (arayüz), class'larin uygulayabileceği bir "sözleşme" olarak düşünülebilir.
+
+     Bir interface, bir veya daha fazla abstract method içerir ve
+    bu methodların imzalarını (adlarını ve parametrelerini) belirtir,
+    ancak bu methodların nasıl uygulanacağını tanımlamaz.
+    Class'lar, bu interface'leri uygulayarak (implement ederek) bu methodları
+    kendi ihtiyaçlarına göre tanımlarlar.
+
+    i) interface icindeki method’lar otomatik olarak ‘public’ dir,
+     bu yuzden interface’lerde method olustururken access modifier yazmayiz.(static degillerdir)
+    ii) interface icindeki method’lar otomatik olarak ‘abstract’ dir, bu yuzden interface’lerde
+     abstract method olustururken ‘abstract’ keyword’unu ve ‘method body’ sini yazmayiz.
+
+             a) interface’leri parent yapmak icin ‘implements’ keyword’u child icinde kullanilir
+             b) extends kullanilmaz cunku bu iki class arasinda kullanili
+             f)Interface'lerden object uretemezsiniz
+
+             Interface ve Abstract Class arasındaki farkları inceleyelim:
+
+             Abstract Class (Soyut Sınıf):
+             Abstract sınıflar, soyutlama amacıyla kullanılır.
+             Hem abstract hem de non-abstract (normal) metotları içerebilir.
+             Bir sınıf sadece bir abstract sınıfı inherit edebilir.
+             Abstract sınıfın bir implementasyonu olabilir.
+
+             Interface:
+             Interface’ler, bir sınıfın belirli metotları implemente etmesini zorlar.
+             Sadece abstract metotları içerebilir.
+             Bir sınıf birden fazla interface’i inherit edebilir.
+             Interface’lerin tüm üyeleri public ve abstract olarak kabul edilir.
+
+             Kullanım Senaryoları:
+             Abstract sınıflar, benzer sınıflar için temel bir yapı sağlamak için kullanılır.
+             Interface’ler, sınıfların belirli yeteneklerini tanımlamak için kullanılır.
+             Özetle, abstract sınıflar daha fazla işlevsellik sağlayabilirken, interface’ler sınıfların yeteneklerini tanımlar.
+             Hangisini kullanmanız gerektiği, projenizin gereksinimlerine bağlıdır. 😊
+
+
+     Access Modifier (Erisim belirleyici)
+        Java'da 1.public, 2.protected, 3.default, 4.private
+             1)public
+             2)protected
+             3)default
+             4)private
+
+             public > protected > default > private
+
+             public      ==>  public olanlar her class’dan kullanilabilir
+             protected   ==> protected olanlar baska package’lardan kullanilamaz,
+                         ancak baska package’larda child classlar icinden kullanilabilir
+             default     ==> default olanlar baska package’lardan kullanilamazlar
+             private     ==> private olanlar sadece olusturulduklari class icinden kullanilabilirler
+
+             "protected ile default" arasindaki farki söyleyiniz?
+             Not ==> protected olanlar baska package’lardan kullanilamaz ancak baska package’larda
+             child classlar icinden kullanilabilir. default olanlar baska package’lardan kullanilamazlar

@@ -1,0 +1,119 @@
+
+Java'nın diğer programlama dillerinden farkı nedir ve neden tercih ediliyor?
+Java, platform bağımsız olması ve nesne yönelimli programlama yapısını desteklemesiyle öne çıkar.
+ Bu özellikler, Java'nın farklı işletim sistemlerinde ve cihazlarda kolayca çalışmasını sağlar.
+  Ayrıca, geniş kütüphane desteği ve güçlü topluluk tarafından desteklenmesi de tercih edilmesinde etkilidir.
+
+  Java nesne yönelimli programlama dılıdır ne demektır?kısaca anlatır mısın?
+  Java, nesne yönelimli programlama (OOP) dilidir.  Nesne yönelimli programlama, bir programı oluşturmak için nesnelerin bir
+  araya getirildiği ve bu nesneler arasındaki ilişkilerin modellendigi bir paradigmadır.Java'da, sınıflar ve nesneler oluşturularak,
+  veri ve işlevsellik bir araya getirilir.
+   Java'da nesne yönelimli programlama şu temel prensiplere dayanır:
+  Nesne yönelimli programlama, kodun daha okunabilir, bakımı daha kolay ve yeniden kullanılabilir olmasını sağlar.
+
+Java'nın temel özellikleri nelerdir ve bu özelliklerin yazılım geliştirme sürecindeki rolü nedir?
+Java'nın temel özellikleri arasında platform bağımsızlık, nesne yönelimli programlama, güvenlik,
+ çoklu iş parçacığı desteği, dinamik bellek yönetimi ve geniş kütüphane desteği bulunur. Bu özellikler,
+  yazılım geliştirme sürecinde verimliliği artırır, daha güvenli ve ölçeklenebilir uygulamaların geliştirilmesini sağlar.
+
+Java'nın hangi sektörlerde ve projelerde en çok kullanıldığını düşünüyorsunuz?
+Java, geniş bir yelpazede kullanılan bir programlama dilidir. Özellikle kurumsal uygulamalar, web uygulamaları,
+ mobil uygulamalar, büyük veri işleme, finansal uygulamalar, oyun geliştirme ve akıllı cihazlar gibi alanlarda sıkça kullanılır.
+
+Java'da çoklu iş parçacığı(multı Threadıng)programlama konsepti nedir ve neden önemlidir?
+thread oluşturmanın SADECE 2 tane yolu var.
+1.YOL: Thread classını extend ederek
+2.YOL: Runnable Interfaceini implemente ederek
+Java'da çoklu iş parçacığı programlama, aynı anda birden fazla görevi işleyebilme yeteneğidir.
+bunu somutlastırmak gerekırse ornegın count adında bır metod olusturalım bu metod bırden ona kadar saysın  bu metodu maın ıcınde
+ cagırıp ıkı defa calıstırdıgımızda 10 sn gececekse  ve aynı metodu tread ıle ıkı defa calıstırdıgımızda yaklasık 5 sn
+ gecer cunku normalınde bırı bıtırmeden dıgerı baslamaz ama multıtreadıng asenkron bır sekılde calısır ıkısı aynı anda sayar boylelıkle
+ hız ve verımlılıgı artırır
+Bu, uygulamaların daha hızlı ve daha verimli çalışmasını sağlar. Özellikle çoklu işlemci sistemlerinde performansı artırır
+ve kullanıcı deneyimini iyileştirir.
+
+Java'da veritabanı ile etkileşim nasıl gerçekleştirilir ve bu sürecin temel adımları nelerdir?
+Java'da veritabanı ile etkileşim genellikle JDBC (Java Database Connectivity) API'si aracılığıyla gerçekleştirilir.
+ Temel adımlar arasında veritabanı bağlantısının kurulması,  sorgularının hazırlanması ve yürütülmesi, sonuçların
+ işlenmesi ve bağlantının kapatılması yer alır.
+ JPA ve Hibernate, Java tabanlı uygulamalarda veritabanı ile etkileşimde bulunmak için kullanılan popüler teknolojilerdir.
+ Bu teknolojiler, nesne ilişkisel eşleme (ORM) prensiplerine dayanır ve veritabanı işlemlerini kolaylaştırır.
+
+ JDBC     :SQL sorguları ıle
+ JPA      :JPQL sorguları ıle
+ Hibernate:HQL sorguları ıle
+
+Java'da kullanılan en yaygın kütüphaneler hangileridir ve bunların projeye katkısı nedir?
+Java'da kullanılan en yaygın kütüphaneler arasında Apache Commons, Google Guava, Jackson, Gson, Hibernate,
+ Spring Framework ve JUnit gibi kütüphaneler bulunur. Bu kütüphaneler, geniş bir işlevsellik yelpazesi sunar ve
+  yazılım geliştirme sürecini hızlandırır, kodun daha modüler ve sürdürülebilir olmasını sağlar.
+  Apache HttpClient: HTTP istekleri göndermek ve almak için kullanılan bir kütüphane
+
+Java kodunun performansını artırmak için hangi stratejileri kullanıyorsunuz?
+Java kodunun performansını artırmak için JIT (Just-In-Time) derlemesi, verimli veri yapıları kullanımı, gereksiz
+döngülerin ve işlemlerin azaltılması, bellek yönetimi optimizasyonu, çoklu iş parçacığı programlama ve önbellekleme
+ gibi stratejiler kullanılabilir.
+
+Java'da güvenlik önlemleri alırken nelere dikkat etmek önemlidir?
+Java'da güvenlik önlemleri alırken, giriş doğrulaması, yetkilendirme, veri doğrulaması, güvenli iletişim kanalları
+kullanımı, güvenlik güncelleştirmelerinin düzenli olarak uygulanması ve güvenlik açıklarının izlenmesi gibi faktörlere dikkat etmek önemlidir.
+
+Java uygulama geliştirme sürecinde sık karşılaşılan hatalar ve bu hatalarla başa çıkma stratejileri nelerdir?
+Java geliştirme sürecinde sık karşılaşılan hatalar arasında bellek sızıntıları, null referans hataları, döngü hataları,
+ veritabanı bağlantı sorunları ve performans problemleri yer alabilir. Bu hatalarla başa çıkmak için kod incelemesi,
+ hata ayıklama araçları kullanımı, test otomasyonu ve sürekli entegrasyon gibi stratejiler kullanılabilir.
+
+Hibernate nedir?
+Neden Nesne İlişki Eşleme (Object Relational Mapping (ORM)) ?
+Nesne yönelimli bir sistemle çalıştığımızda, nesne modeli ile ilişkisel veritabanı arasında bir uyumsuzluk vardır.
+RDBMS (Relational Database Management System) 'ler verileri tablo biçiminde temsil ederken,
+Java veya C# gibi nesne yönelimli diller verileri birbirine bağlı nesneler olarak temsil eder.
+ORM nedir?
+ORM, Nesne-İlişki Eşleme (ORM) anlamına gelir; verileri ilişkisel veritabanları ile Java gıbı nesne yönelimli programlama
+dilleri arasında dönüştürmek için bir programlama tekniğidir.
+Java ORM Frameworkleri
+Java'da birkaç adet kalıcıcılık (persistence)  işlemini gerçekleştirmeyi sağlayan framework ve ORM seçeneği vardır. Bir persistence
+ frameworkü nesneleri ilişkisel bir veritabanında depolayan ve alan bir ORM hizmetidir. Aşağıda bazı çok kullanılan
+ ORM frameworkü listelenmiştir.
+Hibernate
+EclipseLink
+Oracle Toplink
+Data Nucleus
+iBATIS
+vb.
+Hibernate nedir?
+Hibernate , Java için açık kaynaklı bir nesne-ilişki eşleme aracıdır. Bir nesne modelini geleneksel bir ilişkisel veritabanına eşlemek
+için bir çerçeve sağlar. Hibernate , yalnızca Java sınıflarının veritabanı tablolarına (ve Java veri türlerinden SQL veri türlerine)
+eşlenmesiyle ilgilenmekle kalmaz, aynı zamanda veri sorgulama ve alma olanakları sağlar bununla birlikte SQL ve JDBC'de manuel
+veri işleme ile harcanan geliştirme süresini önemli ölçüde azaltabilir.
+Java sınıflarının veritabanı tablolarına eşlenmesi, bir XML dosyasının yapılandırılması veya Java ek açıklamaları (annotation)
+ kullanılarak gerçekleştirilir. Sınıflar arasında bire bir, bire çoğa ve çoktan çoğa ilişkileri düzenleme imkanları vardır.
+
+metod  bazlı yetkılendırme nasıl dızayn edılır?
+hasRole:
+Metod bazlı yetkilendirme için hasRole() kullanamazsınız. hasRole(), yalnızca belirli rolleri kontrol etmek
+için kullanılır vemetod bazlı yetkilendirme için uygun değildir.
+hasAnyRole:
+Birden fazla role sahip olan kullanıcılar için kullanışlıdır.
+hasAnyAuthority:
+daha genel bir yetkiye ihtiyaç varsa, hasAnyAuthority kullanılabilir.
+
+
+generık kavramı nedır?
+Java'da "generic" kavramı,bıe sınıf veya metod olusturulurken bu sınıfın veya metodun farklı data turlerı ıle çalışmasını
+sağlamak için kullanılan bir özelliktir. Bu,bu da kodun daha genel ve yeniden kullanılabilir olmasını sağlar. ve tip güvenli olmasını sağlar.
+i veri tiplerinin uygun olup olmadığı derlemezamanında kontrol edilir.
+Genericlerin kullanımı, özellikle kolleksın (List, Set, Map vb.) gibi veri yapılarıyla çalışırken yaygın olarak görülür.
+
+
+
+sprıng boor ıle sprıng mvs arasındakı fark nelerdır?
+
+
+
+
+kac tane dongu vardır?
+kac tane strıng cesıdı vardır?farkları nelerdır?
+
+SQL, veritabanı yönetim sistemleriyle iletişim kurmak için kullanılan bir sorgu dilidir. Bu nedenle, veritabanıce konuşur.
+SQL, veritabanındaki verileri sorgulamak, ekleme, güncelleme veya silme işlemleri yapmak için kullanılır.

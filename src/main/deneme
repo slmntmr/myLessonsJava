@@ -1,0 +1,7 @@
+Hibernate nedir?
+Hibernate , Java için açık kaynaklı bir nesne-ilişki eşleme aracıdır. Bir nesne modelini geleneksel bir ilişkisel veritabanına eşlemek
+için bir çerçeve sağlar. Hibernate , yalnızca Java sınıflarının veritabanı tablolarına (ve Java veri türlerinden SQL veri türlerine)
+eşlenmesiyle ilgilenmekle kalmaz, aynı zamanda veri sorgulama ve alma olanakları sağlar bununla birlikte SQL ve JDBC'de manuel
+veri işleme ile harcanan geliştirme süresini önemli ölçüde azaltabilir.
+Java sınıflarının veritabanı tablolarına eşlenmesi, bir XML dosyasının yapılandırılması veya Java ek açıklamaları (annotation)
+ kullanılarak gerçekleştirilir. Sınıflar arasında bire bir, bire çoğa ve çoktan çoğa ilişkileri düzenleme imkanları vardır.

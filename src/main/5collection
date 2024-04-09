@@ -1,0 +1,76 @@
+
+    Array - dizi
+          1)Coklu data saklamaya izin veren yapilardir. Ornegin sinifinizdaki ogrencilerin isimleri.
+          2)Array'ler tek data tipi depolayabilirler.Yani bir int dizisi sadece int değerler, bir String
+          dizisi sadece String değerler saklayabilir.
+          3)Array olusturmak icin i)Data Tipi ii)Data sayisi (Dizi boyutu için belirtilebilecek maksimum
+          değer, Integer.MAX_VALUE (yaklaşık 2 milyar) olarak sınırlıdır) soylenmelidir.
+          4)Array'ler diger Collectionlardan hizlidir çünkü boyutları sabittir
+          5)Array'ler diger Collectionlardan daha az memory kullanirlar cünkü ekstra metadata vey işlevselliği yoktur.
+          6)Array’ler hem primitive veri tiplerini (int, char, double vb.) hem de Object referanslarını (örneğin, String)
+
+    MultiDimensional Array
+        Java’da çok boyutlu dizi (MultiDimensional Array) temel olarak arrayin içine array koymak anlamına gelir.
+         En yaygın örneği iki boyutlu dizilerdir, ki bunlar genellikle matris olarak düşünülebilir.
+         İki boyutlu bir dizi, satır ve sütunlardan oluşur, tıpkı bir Excel tablosu gibi.
+
+    Array List Nedir?
+       ArrayList, dinamik bir dizi yapısıdır. Bu, ArrayList'in boyutunun, elemanlar ekleme veya çıkarma sırasında otomatik
+       olarak ayarlanabileceği anlamına gelir. ArrayList, primitive'leri depolayamaz çünkü primitive'ler, referans türleri
+       değildir. Referans türleri bir Objeye işaret eden bir referanstır. Primitive'ler ise doğrudan bir değerdir.
+
+  Array ıle Arrat Lıst arasındakı farklar nelerdır?
+        1)Array’ler primitive data type’lari ve reference’lari depolayabilir ama Arraylist’ler non-primitive’leri
+        (reference’lari) depolar
+       2)ArrayListler memory’de Array’lerden daha fazla yer kaplar
+       3)Array’ler olusturulurken bastan eleman sayisini belirtmek zorundayiz
+       4)ArrayList’ler eleman sayisinda esnektirler.
+        6) Java’da generic (kapsamli) türler (<> ile belirtilen türler) için yalnızca referans veri türleri kullanılabilir. Primitive veri türleri (örneğin int, char, boolean, double, vb.) doğrudan generic türlerin içine yerleştirilemez. Bu nedenle, özel bir durumla karşılaştığınızda, bu türleri ilgili sınıflarla sarmalamanız (wrapper) gerekir.
+
+ Queue:
+ Java’da Queue, verilerin belirli bir düzen içinde saklandığı ve işlendiği bir veri yapısıdır.
+  Ilk giren ilk çıkar (FIFO-first in first out) prensibine dayanır, yani ilk eklenen obje ilk çıkarılır Queue, sıralı işlemler
+  ve verilerin işlenmesi için kullanılır. Araya eleman eklemek mümkün değildir.Kuyruğun çalışma mantığı, elemanların
+  kuyruğun sonuna eklenip başından çıkarılması şeklinde gerçekleşir.Queue, sıralı işlemler veya veriler gerektiğinde kullanışlıdır.
+Queue interface’i, LinkedList (hem de List interface'ini kullanabilir) ve PriorityQueue gibi farklı sınıflar
+tarafından uygulanabilir.
+
+
+     Setler:
+  Set'ler tekrarsiz (unique) datalari depolamak icin kullanilir.Ornegin; tc kimlik, parmak izi, e mail, ehliyet, il plaka no
+  Java’da üç tür set vardır:
+  1) HashSet:
+  Bu set, elemanların hash kodlarına göre depolandığı bir settir. .Bir eleman eklediğinizde, bu elemanın hash kodu hesaplanır ve hash koduna karşılık gelen bir hücreye yerleştirilir..Rasgele sıralanırlar. en hızlı performansı sunar
+  null’i eleman olarak kabul ederler
+  2) LinkedHashSet:
+  Bu set, elemanların eklenme sırasına göre(insertion order) depolandığı bir settir. LinkedHashSet'ler, elemanların
+  sırasını korumaya ihtiyaç duyulan uygulamalar için iyi bir seçimdir.Ancak, HashSet'lerden daha yavaş performans sunarlar. (orta)
+  Ornegin; Okullarda kayit sirasina gore ogrenci bilgilerini tutmak isterseniz kullanabilirsiniz
+  3) TreeSet:
+  Bu set, elemanların doğal sırasına(natural order-kucukten buyuge) göre depolandığı bir settir. HashSet'ler ve LinkedHashSet'lerden daha yavaş performans sunarlar.Java'da TreeSet, SortedSet arayüzünü(interface) uygulayan bir class'tir.
+  Bu nedenle, TreeSet bir sorted set’tir.*/
+
+Map:
+  Map’ler sozluk gibidir. Aciklamalidir.  key-Value çiftlerini saklamak için kullanılır..Sol taraf yani key'ler tekrarsizdir. Value tarafi tekrarli olabilir.Key tarafi icin Set kullanilir. Values için ise genellikle Collection yapısı kullanılır.(Collection yapısı kullanılır, bu da List veya duruma bağlı olarak Array olabilir.Map'in elemanlarina komple 'entry set' (giris elemani) denir.
+HashMap:
+  Key-value çiftlerini rastgele bir sırayla depolayan bir Map türüdür.En hizlisidir. HashMap non-synchronized'dir
+Treemapler:
+entry’leri natural order’a gore siraya koyar, bu yuzden cok yavastirlar.Treemap’ler  thread-safe ve synchronized degildir.
+ Treemap’lerin key’lerinde null kullanilamaz, ama value kisimlarinda istediginiz kadar kullanabilirsinizTreemapler
+ key’e bakarak siralama yapar
+LinkedHashMap:
+HashMap'e benzer, ancak ekleme sırasına göre sıralanmış bir şekilde verileri tutar.Yani, LinkedHashMap verileri eklediğiniz
+sırayla tutar ve bu sırayı korur.Bu nedenle, verileri eklediğiniz sırayla geri almanız gerektiğinde kullanışlı olabilir.*/
+HashTable:
+Key-value çiftlerini rastgele bir sırayla depolayan bir Map türüdür.HashTable thread-safe ve synchronized’di.
+HashTable HashMap’e gore yavastir
+ Hashtable, anahtarlar ve değerler için null değerlerine izin vermez.
+
+        /*HashMap ile HashTable arasindaki fark nedir?
+
+  1)  a) HashMap non-synchronized'dir.Yani, birden fazla iş parçacığı aynı anda bi HashMap'e erişebilir. Aynı anda birden
+  fazla müşteri hesap bilgilerine erişebilir. Bu, örneğin bir müşteri para çekerken, başka bir müşteri aynı anda hesaba para yatırırsa,
+  hesabın bakiyesinin yanlış olmasına yol açabilir.(thread-safe de degildir) Ancak bu durumda senkronizasyon işlemleri manuel olarak yönetilmelidir.(programci Synchronized Bloklar, Lock ve Semapforlar gibi ozel yapilar kullanir
+  Hangi veri yapısını kullanmalısınız?
+   Senkronizasyona gerek yoksa, HashMap kullanın. Bu, daha yüksek performans sağlayacaktır.Senkronizasyon gerekliyse,
+   Hashtable kullanın. Bu, veri tutarsızlığı riskini azaltacaktır.
